@@ -3,57 +3,543 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AlgorithmicValue · Automatización e inteligencia artificial</title>
-<meta name="description" content="AlgorithmicValue: automatización de procesos, inteligencia artificial, análisis de datos y desarrollo de software para empresas.">
-<style>:root{--bg:#fbfbfa;--fg:#1d1f23;--muted:#5d6370;--line:#e4e4e0;--accent:#2348c9;--card:#ffffff}
-@media (prefers-color-scheme:dark){:root{--bg:#141518;--fg:#e9eaec;--muted:#a3a8b3;--line:#2b2d33;--accent:#8fa8ff;--card:#1b1d21}}
+<title>AlgorithmicValue: automatización, chatbots e IA para tu negocio</title>
+<meta name="description" content="Automatizamos el trabajo repetitivo de tu negocio: flujos con n8n, chatbots de WhatsApp e Instagram con inteligencia artificial, páginas web y modelos de datos. Medellín, Colombia.">
+<link rel="canonical" href="https://algorithmicvalue.tech/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AlgorithmicValue: automatizamos el trabajo repetitivo de tu negocio">
+<meta property="og:description" content="Flujos con n8n, chatbots de WhatsApp con IA, páginas web y modelos de datos. Diagnóstico de 45 minutos sin costo.">
+<meta property="og:url" content="https://algorithmicvalue.tech/">
+<meta property="og:image" content="https://algorithmicvalue.tech/img/og-algorithmicvalue.png">
+<meta name="theme-color" content="#2E2C27">
+<link rel="icon" type="image/png" href="img/favicon-64.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="preload" href="fuentes/archivo-variable.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Archivo";src:url("fuentes/archivo-variable.woff2") format("woff2");font-weight:100 900;font-stretch:62% 125%;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Archivo";src:url("fuentes/archivo-variable-ext.woff2") format("woff2");font-weight:100 900;font-stretch:62% 125%;font-style:normal;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"IBM Plex Mono";src:url("fuentes/plex-mono-400.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"IBM Plex Mono";src:url("fuentes/plex-mono-500.woff2") format("woff2");font-weight:500;font-style:normal;font-display:swap}
+:root{
+  --grafito:#2E2C27;
+  --grafito-2:#3A3832;
+  --grafito-3:#4A473F;
+  --oro:#F4BD2C;
+  --oro-suave:#FBE7AE;
+  --acero:#7894AC;
+  --acero-oscuro:#4F6A82;
+  --niebla:#EEF1F4;
+  --blanco:#FFFFFF;
+  --tinta:#1F2328;
+  --tinta-2:#4B535C;
+  --linea:#D9DEE4;
+  --wa:#1FA855;
+  --radio-s:6px;
+  --radio-m:12px;
+  --ancho:1180px;
+  --sans:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
-header{border-bottom:1px solid var(--line);background:var(--card)}
-.wrap{max-width:820px;margin:0 auto;padding:0 20px}
-header .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:18px;padding-bottom:18px;gap:12px;flex-wrap:wrap}
-.brand{font-weight:700;letter-spacing:-.01em;font-size:18px;color:var(--fg);text-decoration:none}
-nav a{color:var(--muted);text-decoration:none;margin-left:16px;font-size:14px}
-nav a:hover,nav a[aria-current]{color:var(--accent)}
-main{padding:40px 0 64px}
-h1{font-size:32px;line-height:1.2;letter-spacing:-.02em;margin:0 0 8px}
-.meta{color:var(--muted);font-size:14px;margin:0 0 32px}
-h2{font-size:20px;margin:40px 0 10px;letter-spacing:-.01em}
-h3{font-size:16px;margin:24px 0 6px}
-a{color:var(--accent)}
-ul,ol{padding-left:22px}
-li{margin:4px 0}
-.box{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 20px;margin:20px 0}
-table{width:100%;border-collapse:collapse;font-size:15px;margin:12px 0}
-th,td{text-align:left;border-bottom:1px solid var(--line);padding:9px 8px;vertical-align:top}
-th{color:var(--muted);font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.04em}
-.tablewrap{overflow-x:auto}
-.box>*:first-child{margin-top:0}.box>*:last-child{margin-bottom:0}nav a:first-child{margin-left:0}footer{border-top:1px solid var(--line);color:var(--muted);font-size:13px;padding:20px 0 40px}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--blanco);color:var(--tinta);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--oro);outline-offset:3px;border-radius:4px}
+.envoltura{width:100%;max-width:var(--ancho);margin:0 auto;padding:0 24px}
+.saltar{position:absolute;left:-999px;top:8px;background:var(--oro);color:var(--grafito);padding:8px 14px;border-radius:var(--radio-s);font-weight:700;z-index:50}
+.saltar:focus{left:12px}
 
-.hero{padding:24px 0 8px} .hero p{font-size:18px;color:var(--muted);max-width:620px}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:28px 0}
-.cards .box{margin:0} .cta{display:inline-block;background:var(--accent);color:#fff;padding:10px 18px;border-radius:8px;text-decoration:none;font-weight:600}
-@media (prefers-color-scheme:dark){.cta{color:#0e1220}}</style>
+/* Tipografía */
+h1,h2,h3{font-family:var(--sans);margin:0;color:inherit;letter-spacing:-.01em}
+h1{font-size:clamp(2.4rem,5.4vw,4.4rem);line-height:1.02;font-weight:800;font-stretch:118%;letter-spacing:-.02em}
+h2{font-size:clamp(1.9rem,3.6vw,2.9rem);line-height:1.08;font-weight:780;font-stretch:112%}
+h3{font-size:1.28rem;line-height:1.25;font-weight:700;font-stretch:104%}
+p{margin:0}
+.entrada{font-size:1.16rem;line-height:1.6;color:var(--tinta-2);max-width:62ch}
+
+/* Botones */
+.boton{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;font-weight:700;font-size:1rem;text-decoration:none;border:2px solid transparent;transition:background-color .15s ease,color .15s ease,border-color .15s ease}
+.boton svg{width:20px;height:20px;flex:none}
+.boton-oro{background:var(--oro);color:var(--grafito)}
+.boton-oro:hover{background:#FFD157}
+.boton-linea{border-color:rgba(255,255,255,.4);color:var(--blanco)}
+.boton-linea:hover{border-color:var(--blanco)}
+.boton-wa{background:var(--wa);color:#fff}
+.boton-wa:hover{background:#18914a}
+
+/* Encabezado */
+.cabecera{position:sticky;top:0;z-index:20;background:rgba(46,44,39,.94);backdrop-filter:saturate(140%) blur(8px);color:var(--blanco);border-bottom:1px solid rgba(255,255,255,.08)}
+.cabecera .envoltura{display:flex;align-items:center;justify-content:space-between;gap:20px;height:70px}
+.marca{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:780;font-stretch:112%;font-size:1.18rem;letter-spacing:-.01em}
+.marca img{width:38px;height:38px}
+.marca-texto b{color:var(--oro);font-weight:inherit}
+.menu{display:flex;align-items:center;gap:26px}
+.menu a{text-decoration:none;font-weight:550;color:rgba(255,255,255,.82);font-size:.97rem}
+.menu a:hover{color:var(--blanco)}
+.menu .boton{padding:10px 18px;font-size:.95rem;color:var(--grafito)}
+@media (max-width:880px){.menu a:not(.boton){display:none}}
+
+/* Héroe */
+.heroe{background:var(--grafito);color:var(--blanco);position:relative;overflow:hidden}
+.heroe::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(circle at 1px 1px,rgba(255,255,255,.06) 1px,transparent 0) 0 0/28px 28px;pointer-events:none}
+.heroe .envoltura{position:relative;display:grid;grid-template-columns:1.08fr .92fr;gap:56px;align-items:center;padding-top:84px;padding-bottom:96px}
+.heroe h1{max-width:13ch}
+.heroe .entrada{color:rgba(255,255,255,.78);margin-top:26px}
+.heroe .acciones{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}
+.credencial{margin-top:40px;max-width:52ch;color:rgba(255,255,255,.7);font-size:.95rem;border-left:3px solid var(--oro);padding-left:16px}
+
+/* Demo de chat */
+.demo{margin:0;background:var(--grafito-2);border:1px solid rgba(255,255,255,.1);border-radius:22px;padding:18px;box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
+.demo-cabeza{display:flex;align-items:center;gap:12px;padding:6px 6px 14px;border-bottom:1px solid rgba(255,255,255,.08)}
+.demo-avatar{width:40px;height:40px;border-radius:50%;background:var(--grafito);display:grid;place-items:center;border:1px solid rgba(244,189,44,.4)}
+.demo-avatar img{width:28px;height:28px}
+.demo-cabeza b{display:block;font-size:.98rem}
+.demo-cabeza small{color:rgba(255,255,255,.6);font-size:.82rem}
+.chat{display:flex;flex-direction:column;gap:10px;padding:16px 4px 6px;min-height:268px}
+.globo{max-width:84%;padding:10px 14px;border-radius:16px;font-size:.95rem;line-height:1.45}
+.globo.g-cliente{align-self:flex-end;background:#3F5A47;border-bottom-right-radius:4px}
+.globo.g-valu{align-self:flex-start;background:var(--grafito-3);border-bottom-left-radius:4px}
+.escribiendo{align-self:flex-start;background:var(--grafito-3);border-radius:16px;padding:12px 14px;display:none;gap:5px}
+.escribiendo i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.55);display:block;animation:punto 1s infinite}
+.escribiendo i:nth-child(2){animation-delay:.15s}.escribiendo i:nth-child(3){animation-delay:.3s}
+@keyframes punto{0%,80%,100%{opacity:.25}40%{opacity:1}}
+.fila{margin-top:14px;background:var(--blanco);color:var(--tinta);border-radius:var(--radio-m);overflow:hidden;border:1px solid rgba(255,255,255,.15)}
+.fila-titulo{display:flex;align-items:center;gap:8px;background:var(--acero);color:var(--blanco);font-weight:650;font-size:.84rem;padding:8px 12px}
+.fila-titulo svg{width:16px;height:16px}
+.fila-datos{display:grid;grid-template-columns:.7fr .9fr 1.3fr 1.25fr;font-family:var(--mono);font-size:.76rem}
+.fila-datos span{padding:9px 10px;border-right:1px solid var(--linea);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fila-datos span:last-child{border-right:0}
+.fila-datos .cabeza{background:#F6F8F9;color:var(--tinta-2);font-family:var(--sans);font-weight:650;font-size:.72rem;border-bottom:1px solid var(--linea)}
+.chip{font-style:normal;display:inline-block;background:#E8DEF8;color:#5B2C8F;font-weight:600;border-radius:4px;padding:1px 6px}
+.js .anim{opacity:0;transform:translateY(8px)}
+.js .anim.ver{opacity:1;transform:none;transition:opacity .35s ease,transform .35s ease}
+@media (prefers-reduced-motion:reduce){.js .anim{opacity:1;transform:none}.escribiendo{display:none!important}}
+
+/* Secciones */
+.seccion{padding:104px 0}
+.seccion-niebla{background:var(--niebla)}
+.titular{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:end;margin-bottom:56px}
+.titular .entrada{justify-self:start}
+
+/* Problema */
+.problema{display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:start}
+.problema h2{max-width:18ch}
+.problema .texto{display:grid;gap:18px;color:var(--tinta-2);font-size:1.08rem}
+.problema .texto strong{color:var(--tinta)}
+
+/* Servicios en filas */
+.servicios{border-top:2px solid var(--tinta)}
+.servicio{display:grid;grid-template-columns:64px 1fr 1.25fr;gap:32px;padding:36px 0;border-bottom:1px solid var(--linea);align-items:start}
+.servicio-icono{width:52px;height:52px;border-radius:var(--radio-m);display:grid;place-items:center}
+.servicio-icono svg{width:28px;height:28px}
+.servicio h3{font-size:1.5rem;font-stretch:110%}
+.servicio .resumen{color:var(--tinta-2);margin-top:8px;max-width:38ch}
+.servicio ul{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px 28px}
+.servicio li{position:relative;padding-left:18px;font-size:.98rem;color:var(--tinta-2)}
+.servicio li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;border-radius:2px;background:var(--oro)}
+.i-n8n{background:#E5EDF8;color:#1F4E79}.i-chat{background:#DFF3E7;color:#1E6B34}.i-web{background:#ECEFF1;color:#2E2C27}.i-datos{background:#FFF3CD;color:#8A6100}
+
+/* Proyectos */
+.galeria{display:grid;grid-template-columns:repeat(2,1fr);gap:28px}
+.proyecto{background:var(--blanco);border-radius:var(--radio-m);overflow:hidden;border:1px solid var(--linea);display:flex;flex-direction:column}
+.proyecto button{all:unset;cursor:zoom-in;display:block;background:#0f1b2d;aspect-ratio:3/2;overflow:hidden}
+.proyecto button:focus-visible{outline:3px solid var(--oro);outline-offset:-3px}
+.proyecto img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+.proyecto button:hover img{transform:scale(1.03)}
+.proyecto .pie{padding:22px 24px 26px}
+.proyecto p{color:var(--tinta-2);margin-top:8px;font-size:.98rem}
+.etiquetas{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.etiquetas span{font-size:.78rem;font-weight:600;color:var(--acero-oscuro);background:#E9EEF3;border-radius:4px;padding:3px 8px}
+dialog.visor{border:0;padding:0;background:transparent;max-width:min(1400px,96vw);max-height:94vh}
+dialog.visor::backdrop{background:rgba(20,19,17,.88)}
+dialog.visor img{max-height:86vh;width:auto;margin:0 auto;border-radius:var(--radio-s)}
+dialog.visor .cerrar{position:absolute;top:8px;right:8px;background:var(--blanco);color:var(--tinta);border:0;border-radius:999px;font:700 .95rem var(--sans);padding:8px 14px;cursor:pointer}
+dialog.visor p{color:#fff;text-align:center;margin-top:10px;font-weight:600}
+
+/* Proceso como flujo de nodos */
+.flujo{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:18px;position:relative}
+.flujo::before{content:"";position:absolute;left:28px;right:28px;top:27px;height:2px;background:repeating-linear-gradient(90deg,var(--acero) 0 10px,transparent 10px 18px)}
+.paso{position:relative}
+.nodo{width:56px;height:56px;border-radius:14px;background:var(--grafito);color:var(--oro);display:grid;place-items:center;font-weight:800;font-size:1.15rem;font-stretch:115%;position:relative;z-index:1;box-shadow:0 0 0 6px var(--niebla)}
+.paso h3{margin-top:20px;font-size:1.12rem}
+.paso .tiempo{display:inline-block;margin-top:6px;font-size:.82rem;font-weight:650;color:var(--acero-oscuro)}
+.paso p{margin-top:10px;color:var(--tinta-2);font-size:.95rem}
+.garantias{display:grid;grid-template-columns:repeat(3,1fr);margin-top:64px;background:var(--grafito);color:var(--blanco);border-radius:var(--radio-m);overflow:hidden}
+.garantias div{padding:30px 30px 32px;border-right:1px solid rgba(255,255,255,.1)}
+.garantias div:last-child{border-right:0}
+.garantias h3{color:var(--oro);font-size:1.08rem}
+.garantias p{margin-top:8px;color:rgba(255,255,255,.75);font-size:.97rem}
+
+/* Equipo */
+.equipo{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:start}
+.equipo .texto{display:grid;gap:18px}
+.roles{display:grid;gap:18px}
+.rol{border-left:4px solid var(--oro);padding:6px 0 6px 22px}
+.rol h3{font-size:1.15rem}
+.rol p{margin-top:6px;color:var(--tinta-2);font-size:.98rem}
+.pilares{margin:28px 0 0;padding:0;list-style:none;display:grid;gap:10px}
+.pilares li{display:flex;gap:12px;color:var(--tinta-2)}
+.pilares svg{width:22px;height:22px;flex:none;color:var(--acero-oscuro);margin-top:2px}
+.stack{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.stack span{border:1px solid var(--linea);border-radius:999px;padding:5px 12px;font-size:.88rem;font-weight:550;color:var(--tinta-2);background:var(--blanco)}
+
+/* Prueba a Valu */
+.valu{display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:center;background:var(--blanco);border:1px solid var(--linea);border-radius:20px;padding:40px}
+.valu .qr{width:200px;background:var(--blanco);border-radius:var(--radio-m);padding:10px;border:1px solid var(--linea)}
+.valu p{color:var(--tinta-2);margin-top:12px;max-width:56ch}
+.valu .boton{margin-top:24px}
+
+/* Cierre */
+.cierre{background:var(--grafito);color:var(--blanco)}
+.cierre .envoltura{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;padding-top:104px;padding-bottom:104px}
+.cierre h2{max-width:16ch}
+.cierre .entrada{color:rgba(255,255,255,.75);margin-top:20px}
+.contactos{display:grid;gap:14px}
+.contacto{display:flex;align-items:center;gap:16px;text-decoration:none;background:var(--grafito-2);border:1px solid rgba(255,255,255,.1);border-radius:var(--radio-m);padding:20px 22px;transition:border-color .15s ease}
+.contacto:hover{border-color:var(--oro)}
+.contacto svg{width:28px;height:28px;color:var(--oro);flex:none}
+.contacto small{display:block;color:rgba(255,255,255,.6);font-size:.85rem}
+.contacto b{font-size:1.12rem}
+
+/* Pie */
+.pie-pagina{background:#24221E;color:rgba(255,255,255,.65);font-size:.92rem}
+.pie-pagina .envoltura{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;padding-top:28px;padding-bottom:28px}
+.pie-pagina nav{display:flex;flex-wrap:wrap;gap:22px}
+.pie-pagina a{text-decoration:none}
+.pie-pagina a:hover{color:var(--blanco);text-decoration:underline}
+
+/* Responsivo */
+@media (max-width:1000px){
+  .heroe .envoltura,.cierre .envoltura,.problema,.equipo,.titular{grid-template-columns:1fr}
+  .heroe .envoltura{gap:48px;padding-top:56px;padding-bottom:64px}
+  .titular{gap:18px;align-items:start}
+  .flujo{grid-template-columns:1fr;gap:28px}
+  .flujo::before{left:27px;right:auto;top:28px;bottom:28px;width:2px;height:auto;background:repeating-linear-gradient(180deg,var(--acero) 0 10px,transparent 10px 18px)}
+  .paso{display:grid;grid-template-columns:56px 1fr;column-gap:20px}
+  .paso .nodo{grid-row:span 3}
+  .paso h3{margin-top:4px}
+  .servicio{grid-template-columns:52px 1fr;gap:20px}
+  .servicio ul{grid-column:1/-1}
+}
+@media (max-width:700px){
+  body{font-size:16px}
+  .envoltura{padding:0 16px}
+  .seccion{padding:72px 0}
+  .galeria{grid-template-columns:1fr}
+  .garantias{grid-template-columns:1fr}
+  .garantias div{border-right:0;border-bottom:1px solid rgba(255,255,255,.1)}
+  .servicio ul{grid-template-columns:1fr}
+  .valu{grid-template-columns:1fr;padding:28px 22px;gap:24px}
+  .valu .qr{width:170px}
+  .fila-datos{grid-template-columns:.8fr 1.4fr 1fr}
+  .fila-datos span:nth-child(4n+2){display:none}
+  .cierre .envoltura{padding-top:72px;padding-bottom:72px}
+  .marca{font-size:1.05rem}
+  .menu .boton{padding:9px 14px;font-size:.88rem}
+}
+</style>
 </head>
 <body>
-<header><div class="wrap"><a class="brand" href="./">AlgorithmicValue</a><nav><a href="privacidad.html">Privacidad</a><a href="eliminacion-datos.html">Eliminación de datos</a></nav></div></header>
-<main><div class="wrap">
-<section class="hero">
-<h1>Automatización e inteligencia artificial para hacer crecer tu negocio</h1>
-<p>Ayudamos a empresas y emprendedores de Latinoamérica a reducir tareas manuales, atender mejor a sus clientes y decidir con datos.</p>
-<p><a class="cta" href="https://wa.me/573247719538?text=Hola%20AlgorithmicValue%2C%20quiero%20informaci%C3%B3n">Escríbenos por WhatsApp</a></p>
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+
+<header class="cabecera">
+  <div class="envoltura">
+    <a class="marca" href="#inicio" aria-label="AlgorithmicValue, inicio">
+      <img src="img/logo-icono.png" alt="" width="38" height="38">
+      <span class="marca-texto">Algorithmic<b>Value</b></span>
+    </a>
+    <nav class="menu" aria-label="Principal">
+      <a href="#servicios">Servicios</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#proceso">Cómo trabajamos</a>
+      <a href="#equipo">Quiénes somos</a>
+      <a class="boton boton-oro" href="https://wa.me/573247719538?text=Hola%20AlgorithmicValue%2C%20quiero%20agendar%20un%20diagn%C3%B3stico." target="_blank" rel="noopener">Escríbenos</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenido">
+<section class="heroe" id="inicio">
+  <div class="envoltura">
+    <div>
+      <h1>Automatizamos el trabajo repetitivo de tu negocio.</h1>
+      <p class="entrada">Conectamos tus herramientas con n8n, atendemos tu WhatsApp con inteligencia artificial y convertimos tus datos en decisiones. Lo construye un equipo de ingeniería con casi dos décadas operando activos críticos del sector energético.</p>
+      <div class="acciones">
+        <a class="boton boton-oro" href="https://wa.me/573247719538?text=Hola%20AlgorithmicValue%2C%20quiero%20agendar%20un%20diagn%C3%B3stico." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.6-1.3a.5.5 0 0 0 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></svg>
+          Agendar diagnóstico gratis
+        </a>
+        <a class="boton boton-linea" href="#servicios">Ver servicios</a>
+      </div>
+      <div class="credencial">
+        <p>La sesión de diagnóstico dura 45 minutos, no tiene costo y terminas con tu proceso mapeado y una idea clara de qué automatizar primero.</p>
+      </div>
+    </div>
+
+    <figure class="demo" aria-label="Ejemplo: conversación de un cliente con Valu, el asistente de AlgorithmicValue, y el registro que se crea en la hoja de prospectos">
+      <div class="demo-cabeza">
+        <div class="demo-avatar"><img src="img/logo-icono.png" alt=""></div>
+        <div><b>Valu, de AlgorithmicValue</b><small>Asistente con IA, responde al instante</small></div>
+      </div>
+      <div class="chat" id="chat">
+        <p class="globo g-cliente anim">Hola, tengo una panadería y no alcanzo a responder los pedidos que llegan por WhatsApp.</p>
+        <p class="globo g-valu anim">¡Hola! Soy Valu. Podemos automatizar la toma de pedidos para que te lleguen ordenados y sin perder clientes. ¿Con quién tengo el gusto?</p>
+        <p class="globo g-cliente anim">Laura. ¿Podemos hablar el martes?</p>
+        <p class="globo g-valu anim">Listo, Laura. Registré tu solicitud y el equipo te confirma la reunión del martes.</p>
+        <div class="escribiendo" id="escribiendo" aria-hidden="true"><i></i><i></i><i></i></div>
+      </div>
+      <div class="fila anim" id="fila">
+        <div class="fila-titulo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18"/></svg>Nueva fila en tu hoja de prospectos</div>
+        <div class="fila-datos">
+          <span class="cabeza">Nombre</span><span class="cabeza">Negocio</span><span class="cabeza">Necesidad</span><span class="cabeza">Estado</span>
+          <span>Laura</span><span>Panadería</span><span>Pedidos por WhatsApp</span><span><em class="chip">Reunión</em></span>
+        </div>
+      </div>
+    </figure>
+  </div>
 </section>
-<div class="cards">
-<div class="box"><h3>Automatización con IA</h3><p>Flujos que conectan tus sistemas y eliminan trabajo repetitivo.</p></div>
-<div class="box"><h3>Chatbots y agentes</h3><p>Asistentes para WhatsApp y web que responden, califican prospectos y agendan.</p></div>
-<div class="box"><h3>Software a medida</h3><p>Aplicaciones web, APIs e integraciones adaptadas a tus procesos.</p></div>
-<div class="box"><h3>Datos y analítica</h3><p>Dashboards y modelos para entender y anticipar tu operación.</p></div>
-</div>
-<section class="box" style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;margin-top:8px">
-<div style="flex:0 0 auto;background:#fff;border-radius:12px;padding:8px;line-height:0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45 45" width="220" height="220" role="img" aria-label="Código QR para escribir a AlgorithmicValue por WhatsApp" shape-rendering="crispEdges"><rect width="45" height="45" fill="#fff"/><path fill="#343434" d="M2 2h7v1h-7zM10 2h2v1h-2zM14 2h1v1h-1zM18 2h3v1h-3zM24 2h1v1h-1zM27 2h2v1h-2zM30 2h1v1h-1zM36 2h7v1h-7zM2 3h1v1h-1zM8 3h1v1h-1zM10 3h3v1h-3zM15 3h1v1h-1zM18 3h1v1h-1zM20 3h2v1h-2zM23 3h2v1h-2zM26 3h3v1h-3zM30 3h2v1h-2zM33 3h1v1h-1zM36 3h1v1h-1zM42 3h1v1h-1zM2 4h1v1h-1zM4 4h3v1h-3zM8 4h1v1h-1zM10 4h1v1h-1zM12 4h1v1h-1zM15 4h1v1h-1zM21 4h1v1h-1zM24 4h2v1h-2zM27 4h2v1h-2zM31 4h3v1h-3zM36 4h1v1h-1zM38 4h3v1h-3zM42 4h1v1h-1zM2 5h1v1h-1zM4 5h3v1h-3zM8 5h1v1h-1zM11 5h2v1h-2zM14 5h1v1h-1zM17 5h1v1h-1zM20 5h1v1h-1zM25 5h1v1h-1zM28 5h3v1h-3zM34 5h1v1h-1zM36 5h1v1h-1zM38 5h3v1h-3zM42 5h1v1h-1zM2 6h1v1h-1zM4 6h3v1h-3zM8 6h1v1h-1zM10 6h1v1h-1zM16 6h1v1h-1zM18 6h2v1h-2zM23 6h1v1h-1zM27 6h1v1h-1zM30 6h4v1h-4zM36 6h1v1h-1zM38 6h3v1h-3zM42 6h1v1h-1zM2 7h1v1h-1zM8 7h1v1h-1zM11 7h3v1h-3zM15 7h1v1h-1zM18 7h2v1h-2zM22 7h1v1h-1zM25 7h1v1h-1zM27 7h2v1h-2zM36 7h1v1h-1zM42 7h1v1h-1zM2 8h7v1h-7zM10 8h1v1h-1zM12 8h1v1h-1zM14 8h1v1h-1zM16 8h1v1h-1zM18 8h1v1h-1zM20 8h1v1h-1zM22 8h1v1h-1zM24 8h1v1h-1zM26 8h1v1h-1zM28 8h1v1h-1zM30 8h1v1h-1zM32 8h1v1h-1zM34 8h1v1h-1zM36 8h7v1h-7zM11 9h1v1h-1zM13 9h2v1h-2zM22 9h1v1h-1zM26 9h2v1h-2zM33 9h1v1h-1zM2 10h1v1h-1zM5 10h6v1h-6zM13 10h2v1h-2zM16 10h7v1h-7zM24 10h2v1h-2zM29 10h3v1h-3zM34 10h2v1h-2zM38 10h1v1h-1zM40 10h3v1h-3zM2 11h6v1h-6zM9 11h1v1h-1zM11 11h2v1h-2zM16 11h1v1h-1zM21 11h2v1h-2zM25 11h3v1h-3zM29 11h2v1h-2zM32 11h2v1h-2zM38 11h1v1h-1zM41 11h1v1h-1zM2 12h3v1h-3zM6 12h3v1h-3zM10 12h2v1h-2zM14 12h3v1h-3zM18 12h1v1h-1zM23 12h4v1h-4zM29 12h4v1h-4zM35 12h1v1h-1zM40 12h2v1h-2zM4 13h1v1h-1zM6 13h1v1h-1zM9 13h2v1h-2zM13 13h2v1h-2zM16 13h5v1h-5zM24 13h1v1h-1zM26 13h1v1h-1zM31 13h1v1h-1zM33 13h3v1h-3zM37 13h3v1h-3zM41 13h1v1h-1zM3 14h2v1h-2zM6 14h1v1h-1zM8 14h1v1h-1zM10 14h2v1h-2zM14 14h3v1h-3zM18 14h1v1h-1zM22 14h1v1h-1zM25 14h1v1h-1zM29 14h2v1h-2zM32 14h1v1h-1zM36 14h1v1h-1zM41 14h2v1h-2zM4 15h1v1h-1zM7 15h1v1h-1zM10 15h1v1h-1zM12 15h3v1h-3zM18 15h1v1h-1zM20 15h2v1h-2zM26 15h3v1h-3zM30 15h1v1h-1zM32 15h3v1h-3zM36 15h1v1h-1zM38 15h1v1h-1zM40 15h1v1h-1zM42 15h1v1h-1zM4 16h1v1h-1zM6 16h6v1h-6zM13 16h2v1h-2zM16 16h1v1h-1zM19 16h2v1h-2zM27 16h2v1h-2zM30 16h1v1h-1zM33 16h4v1h-4zM38 16h2v1h-2zM42 16h1v1h-1zM2 17h2v1h-2zM7 17h1v1h-1zM9 17h2v1h-2zM13 17h1v1h-1zM16 17h1v1h-1zM18 17h1v1h-1zM21 17h1v1h-1zM24 17h1v1h-1zM26 17h1v1h-1zM29 17h1v1h-1zM34 17h2v1h-2zM37 17h6v1h-6zM2 18h3v1h-3zM6 18h3v1h-3zM10 18h2v1h-2zM15 18h1v1h-1zM17 18h1v1h-1zM21 18h2v1h-2zM24 18h5v1h-5zM35 18h1v1h-1zM2 19h2v1h-2zM6 19h2v1h-2zM11 19h1v1h-1zM13 19h1v1h-1zM20 19h3v1h-3zM24 19h1v1h-1zM27 19h3v1h-3zM31 19h5v1h-5zM38 19h2v1h-2zM41 19h1v1h-1zM3 20h1v1h-1zM5 20h2v1h-2zM8 20h1v1h-1zM11 20h3v1h-3zM16 20h1v1h-1zM21 20h1v1h-1zM23 20h3v1h-3zM29 20h6v1h-6zM37 20h2v1h-2zM40 20h1v1h-1zM42 20h1v1h-1zM2 21h6v1h-6zM10 21h1v1h-1zM12 21h1v1h-1zM14 21h2v1h-2zM17 21h1v1h-1zM19 21h3v1h-3zM24 21h1v1h-1zM26 21h1v1h-1zM28 21h2v1h-2zM33 21h3v1h-3zM38 21h5v1h-5zM2 22h1v1h-1zM4 22h1v1h-1zM7 22h2v1h-2zM12 22h1v1h-1zM15 22h2v1h-2zM23 22h8v1h-8zM32 22h2v1h-2zM36 22h2v1h-2zM39 22h2v1h-2zM2 23h2v1h-2zM6 23h2v1h-2zM9 23h1v1h-1zM14 23h1v1h-1zM16 23h2v1h-2zM20 23h2v1h-2zM25 23h1v1h-1zM28 23h1v1h-1zM33 23h1v1h-1zM36 23h1v1h-1zM38 23h1v1h-1zM40 23h1v1h-1zM3 24h4v1h-4zM8 24h1v1h-1zM13 24h1v1h-1zM16 24h1v1h-1zM18 24h1v1h-1zM20 24h1v1h-1zM24 24h3v1h-3zM29 24h1v1h-1zM31 24h2v1h-2zM37 24h1v1h-1zM39 24h1v1h-1zM2 25h2v1h-2zM7 25h1v1h-1zM10 25h1v1h-1zM15 25h1v1h-1zM17 25h1v1h-1zM19 25h1v1h-1zM26 25h1v1h-1zM28 25h1v1h-1zM30 25h2v1h-2zM33 25h6v1h-6zM2 26h3v1h-3zM7 26h6v1h-6zM20 26h1v1h-1zM24 26h2v1h-2zM28 26h3v1h-3zM32 26h1v1h-1zM34 26h6v1h-6zM42 26h1v1h-1zM3 27h1v1h-1zM5 27h1v1h-1zM7 27h1v1h-1zM10 27h4v1h-4zM16 27h2v1h-2zM22 27h6v1h-6zM29 27h2v1h-2zM32 27h1v1h-1zM34 27h5v1h-5zM40 27h1v1h-1zM3 28h2v1h-2zM6 28h1v1h-1zM8 28h3v1h-3zM12 28h3v1h-3zM17 28h1v1h-1zM20 28h5v1h-5zM28 28h2v1h-2zM33 28h2v1h-2zM39 28h1v1h-1zM42 28h1v1h-1zM4 29h1v1h-1zM9 29h5v1h-5zM16 29h1v1h-1zM18 29h1v1h-1zM22 29h1v1h-1zM24 29h3v1h-3zM33 29h1v1h-1zM38 29h5v1h-5zM4 30h1v1h-1zM6 30h1v1h-1zM8 30h1v1h-1zM24 30h4v1h-4zM30 30h1v1h-1zM32 30h4v1h-4zM39 30h1v1h-1zM2 31h1v1h-1zM4 31h1v1h-1zM6 31h2v1h-2zM11 31h1v1h-1zM13 31h2v1h-2zM17 31h2v1h-2zM20 31h1v1h-1zM23 31h3v1h-3zM30 31h1v1h-1zM34 31h1v1h-1zM36 31h1v1h-1zM38 31h2v1h-2zM41 31h1v1h-1zM2 32h2v1h-2zM6 32h3v1h-3zM10 32h1v1h-1zM12 32h1v1h-1zM19 32h3v1h-3zM26 32h1v1h-1zM28 32h2v1h-2zM31 32h2v1h-2zM34 32h2v1h-2zM37 32h2v1h-2zM40 32h1v1h-1zM42 32h1v1h-1zM2 33h2v1h-2zM5 33h1v1h-1zM11 33h3v1h-3zM15 33h3v1h-3zM21 33h2v1h-2zM24 33h2v1h-2zM27 33h2v1h-2zM36 33h1v1h-1zM40 33h1v1h-1zM2 34h4v1h-4zM8 34h5v1h-5zM15 34h1v1h-1zM17 34h1v1h-1zM19 34h3v1h-3zM25 34h2v1h-2zM29 34h1v1h-1zM31 34h1v1h-1zM34 34h5v1h-5zM40 34h1v1h-1zM10 35h2v1h-2zM17 35h1v1h-1zM20 35h2v1h-2zM23 35h1v1h-1zM25 35h1v1h-1zM29 35h1v1h-1zM31 35h4v1h-4zM38 35h4v1h-4zM2 36h7v1h-7zM10 36h1v1h-1zM15 36h1v1h-1zM19 36h2v1h-2zM22 36h1v1h-1zM24 36h3v1h-3zM28 36h3v1h-3zM33 36h2v1h-2zM36 36h1v1h-1zM38 36h4v1h-4zM2 37h1v1h-1zM8 37h1v1h-1zM10 37h1v1h-1zM12 37h3v1h-3zM17 37h1v1h-1zM19 37h1v1h-1zM21 37h1v1h-1zM23 37h4v1h-4zM28 37h1v1h-1zM32 37h1v1h-1zM34 37h1v1h-1zM38 37h1v1h-1zM42 37h1v1h-1zM2 38h1v1h-1zM4 38h3v1h-3zM8 38h1v1h-1zM10 38h2v1h-2zM13 38h1v1h-1zM16 38h1v1h-1zM18 38h6v1h-6zM25 38h1v1h-1zM27 38h3v1h-3zM31 38h1v1h-1zM33 38h6v1h-6zM41 38h1v1h-1zM2 39h1v1h-1zM4 39h3v1h-3zM8 39h1v1h-1zM10 39h1v1h-1zM12 39h1v1h-1zM14 39h1v1h-1zM16 39h4v1h-4zM25 39h1v1h-1zM27 39h1v1h-1zM29 39h1v1h-1zM31 39h3v1h-3zM37 39h1v1h-1zM40 39h2v1h-2zM2 40h1v1h-1zM4 40h3v1h-3zM8 40h1v1h-1zM12 40h3v1h-3zM19 40h1v1h-1zM21 40h2v1h-2zM28 40h4v1h-4zM33 40h1v1h-1zM35 40h1v1h-1zM37 40h2v1h-2zM42 40h1v1h-1zM2 41h1v1h-1zM8 41h1v1h-1zM12 41h2v1h-2zM15 41h1v1h-1zM18 41h1v1h-1zM25 41h1v1h-1zM29 41h2v1h-2zM32 41h1v1h-1zM38 41h3v1h-3zM42 41h1v1h-1zM2 42h7v1h-7zM10 42h1v1h-1zM12 42h1v1h-1zM15 42h2v1h-2zM20 42h2v1h-2zM27 42h3v1h-3zM33 42h3v1h-3zM38 42h1v1h-1zM40 42h1v1h-1z"/></svg></div>
-<div style="flex:1 1 240px"><h2 style="margin-top:0">Escríbenos por WhatsApp</h2><p>Escanea el código con tu celular o toca el botón. Te atiende Valu, nuestro asistente virtual, y si lo necesitas te contacta una persona de nuestro equipo.</p><p><a class="cta" href="https://wa.me/573247719538?text=Hola%20AlgorithmicValue%2C%20quiero%20informaci%C3%B3n">Abrir WhatsApp</a></p><p class="meta" style="margin:0">+57 324 771 9538 · <a href="https://wa.me/573247719538?text=Hola%20AlgorithmicValue%2C%20quiero%20informaci%C3%B3n">wa.me/573247719538</a></p></div>
+
+<section class="seccion">
+  <div class="envoltura problema">
+    <h2>Cada semana que esperas, tu equipo pierde horas que nadie le devuelve.</h2>
+    <div class="texto">
+      <p>Copiar datos entre planillas, responder los mismos mensajes, armar el informe de siempre. Ese trabajo no hace crecer tu negocio: lo frena. Y mientras tanto, tu competencia ya lo tiene automatizado.</p>
+      <p><strong>No vendemos demos bonitas.</strong> Entregamos procesos que funcionan solos, se miden en horas ahorradas y quedan en tus manos.</p>
+    </div>
+  </div>
 </section>
-</div></main>
-<footer><div class="wrap">© 2026 AlgorithmicValue, marca de Andrés Mauricio Valencia Guerra · Medellín, Colombia · <a href="mailto:andresvalencia6913@gmail.com">andresvalencia6913@gmail.com</a> · <a href="https://wa.me/573247719538">+57 324 771 9538</a> · <a href="privacidad.html">Política de privacidad</a> · <a href="eliminacion-datos.html">Eliminación de datos</a></div></footer>
+
+<section class="seccion seccion-niebla" id="servicios">
+  <div class="envoltura">
+    <div class="titular">
+      <h2>Cuatro frentes de trabajo</h2>
+      <p class="entrada">Se contratan por separado o como un sistema completo: captar clientes, atenderlos y operar el negocio sin trabajo manual de por medio.</p>
+    </div>
+    <div class="servicios">
+      <article class="servicio">
+        <div class="servicio-icono i-n8n"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5" cy="12" r="2.5"/><circle cx="19" cy="6" r="2.5"/><circle cx="19" cy="18" r="2.5"/><path d="M7.5 12h4l3-5.2M11.5 12l3 5.2"/></svg></div>
+        <div><h3>Automatización con n8n</h3><p class="resumen">Flujos que conectan tus herramientas y hacen solos las tareas que hoy alguien hace a mano.</p></div>
+        <ul>
+          <li>Integración entre CRM, correo, Google Sheets, ERP y otras aplicaciones</li>
+          <li>Reportes e informes automáticos programados</li>
+          <li>Alertas y avisos por WhatsApp o correo</li>
+          <li>Carga, limpieza y sincronización de datos</li>
+          <li>Agentes con IA dentro de tus procesos</li>
+        </ul>
+      </article>
+      <article class="servicio">
+        <div class="servicio-icono i-chat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.4-4.9A8 8 0 1 1 21 12Z"/><path d="M8.5 11h.01M12 11h.01M15.5 11h.01"/></svg></div>
+        <div><h3>Chatbots de WhatsApp e Instagram</h3><p class="resumen">Atención automática las 24 horas que responde, califica y agenda sin perder el tono de tu marca.</p></div>
+        <ul>
+          <li>Respuestas con IA sobre tu catálogo y tus políticas</li>
+          <li>Calificación de clientes y paso a un asesor humano</li>
+          <li>Agendamiento de citas y recordatorios</li>
+          <li>Seguimiento de pedidos y preguntas frecuentes</li>
+          <li>Registro de cada conversación en tu hoja o CRM</li>
+        </ul>
+      </article>
+      <article class="servicio">
+        <div class="servicio-icono i-web"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01M8 14l-2 2 2 2M16 14l2 2-2 2M13 13l-2 6"/></svg></div>
+        <div><h3>Páginas web</h3><p class="resumen">Sitios rápidos y claros, pensados para que las visitas se conviertan en conversaciones.</p></div>
+        <ul>
+          <li>Páginas de aterrizaje y sitios corporativos</li>
+          <li>Formularios conectados al chatbot y a tu CRM</li>
+          <li>Portales internos y aplicaciones web a medida</li>
+          <li>Diseño adaptable a celular y carga rápida</li>
+          <li>Medición de visitas y resultados</li>
+        </ul>
+      </article>
+      <article class="servicio">
+        <div class="servicio-icono i-datos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div>
+        <div><h3>Datos, tableros e IA</h3><p class="resumen">Los datos que ya tienes, convertidos en tableros y modelos que se anticipan a las decisiones.</p></div>
+        <ul>
+          <li>Tableros en Power BI y en la web</li>
+          <li>Modelos predictivos y de clasificación</li>
+          <li>Visión por computador sobre imágenes</li>
+          <li>Depuración y análisis de grandes volúmenes de datos</li>
+          <li>Informes ejecutivos automáticos</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="seccion" id="proyectos">
+  <div class="envoltura">
+    <div class="titular">
+      <h2>Proyectos que ya están funcionando</h2>
+      <p class="entrada">Modelos y automatizaciones construidos para operaciones donde un error cuesta millones. Haz clic en cada imagen para verla completa.</p>
+    </div>
+    <div class="galeria">
+      <article class="proyecto">
+        <button type="button" data-img="img/proyecto-hidroelectricas.webp" data-titulo="Estimación de energía embalsada en hidroeléctricas" aria-label="Ampliar imagen: estimación de energía embalsada en hidroeléctricas">
+          <img src="img/proyecto-hidroelectricas-mini.webp" alt="Infografía del modelo de machine learning para estimar la energía embalsada en hidroeléctricas" loading="lazy" width="760" height="507">
+        </button>
+        <div class="pie"><h3>Estimación de energía embalsada en hidroeléctricas</h3><p>Modelos de machine learning que predicen la energía disponible en el embalse para planear la generación y gestionar riesgos.</p><div class="etiquetas"><span>Python</span><span>XGBoost</span><span>TensorFlow</span><span>SQL</span></div></div>
+      </article>
+      <article class="proyecto">
+        <button type="button" data-img="img/proyecto-patologias.webp" data-titulo="Detección de grietas, corrosión y humedad" aria-label="Ampliar imagen: detección de grietas, corrosión y humedad">
+          <img src="img/proyecto-patologias-mini.webp" alt="Infografía del sistema de deep learning que clasifica grietas, corrosión y humedad en estructuras" loading="lazy" width="760" height="507">
+        </button>
+        <div class="pie"><h3>Detección de grietas, corrosión y humedad</h3><p>Visión por computador que clasifica patologías estructurales a partir de las fotos de inspección, con su nivel de confianza y ubicación.</p><div class="etiquetas"><span>Deep learning</span><span>OpenCV</span><span>Keras</span></div></div>
+      </article>
+      <article class="proyecto">
+        <button type="button" data-img="img/proyecto-dashboards.webp" data-titulo="Tableros de condición de equipos" aria-label="Ampliar imagen: tableros de condición de equipos">
+          <img src="img/proyecto-dashboards-mini.webp" alt="Infografía de un tablero de condición de activos críticos con indicadores y alertas" loading="lazy" width="760" height="507">
+        </button>
+        <div class="pie"><h3>Tableros de condición de equipos</h3><p>Python, SQL, Power BI y web integrados para vigilar en tiempo real el estado de activos críticos y anticipar fallas.</p><div class="etiquetas"><span>Power BI</span><span>SQL Server</span><span>HTML, CSS y JS</span></div></div>
+      </article>
+      <article class="proyecto">
+        <button type="button" data-img="img/proyecto-alarmas.webp" data-titulo="De 5.342 alarmas a 87 relevantes" aria-label="Ampliar imagen: depuración automática de alarmas">
+          <img src="img/proyecto-alarmas-mini.webp" alt="Infografía del filtrado automático de alarmas: de 5.342 alarmas a 87 relevantes" loading="lazy" width="760" height="507">
+        </button>
+        <div class="pie"><h3>De 5.342 alarmas a 87 relevantes</h3><p>Filtrado, agrupación y correlación automática de alarmas en Python para que el equipo atienda solo lo importante.</p><div class="etiquetas"><span>Python</span><span>Pandas</span><span>Automatización</span></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="seccion seccion-niebla" id="proceso">
+  <div class="envoltura">
+    <div class="titular">
+      <h2>De la primera llamada al proceso funcionando</h2>
+      <p class="entrada">Cada semana hay algo funcionando que puedes revisar. Nada de esperar meses para ver resultados.</p>
+    </div>
+    <ol class="flujo">
+      <li class="paso"><span class="nodo" aria-hidden="true">1</span><h3>Diagnóstico</h3><span class="tiempo">Día 1</span><p>Sesión de 45 minutos para mapear tu proceso, los cuellos de botella y cuánto tiempo consumen. Sin costo.</p></li>
+      <li class="paso"><span class="nodo" aria-hidden="true">2</span><h3>Propuesta y alcance</h3><span class="tiempo">Días 2 a 4</span><p>Documento con el flujo propuesto, entregables, tiempos, inversión y el ahorro estimado en horas.</p></li>
+      <li class="paso"><span class="nodo" aria-hidden="true">3</span><h3>Construcción por etapas</h3><span class="tiempo">Semanas 1 a 4</span><p>Primero el flujo crítico, probado con datos reales. Cada semana ves avances.</p></li>
+      <li class="paso"><span class="nodo" aria-hidden="true">4</span><h3>Puesta en marcha</h3><span class="tiempo">Semana 5</span><p>Despliegue en tus cuentas, documentación y capacitación del equipo que lo va a usar.</p></li>
+      <li class="paso"><span class="nodo" aria-hidden="true">5</span><h3>Acompañamiento</h3><span class="tiempo">Continuo</span><p>Monitoreo, ajustes y nuevas automatizaciones a medida que tu negocio cambia.</p></li>
+    </ol>
+    <div class="garantias">
+      <div><h3>Entregables</h3><p>Flujos documentados, accesos, manual de uso y video explicativo.</p></div>
+      <div><h3>Propiedad</h3><p>Todo queda en tus cuentas: eres dueño del código y de los datos.</p></div>
+      <div><h3>Garantía</h3><p>30 días de ajustes sin costo después de la puesta en marcha.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="seccion" id="equipo">
+  <div class="envoltura equipo">
+    <div class="texto">
+      <h2>Un emprendimiento familiar de ingeniería</h2>
+      <p class="entrada">Dos generaciones trabajando sobre el mismo problema: que tu negocio deje de depender de tareas manuales. Estamos en Medellín y trabajamos de forma remota con empresas de Colombia y Latinoamérica.</p>
+      <ul class="pilares">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Primero entendemos tu proceso; después elegimos la tecnología.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Entregamos por etapas, con algo funcionando desde la primera semana.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Documentamos y capacitamos para que tu equipo sea autónomo.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Medimos resultados: horas ahorradas, errores evitados, clientes atendidos.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="roles">
+        <div class="rol"><h3>Estrategia, datos e IA</h3><p>Ingeniería electromecánica con posgrado en ciencia de datos y machine learning, y más de 19 años operando activos críticos donde un error cuesta millones. Traduce el proceso de tu negocio en automatización que resiste el día a día.</p></div>
+        <div class="rol"><h3>Desarrollo y programación</h3><p>Ingeniería de sistemas y programación en Python, JavaScript, Node.js, PHP, HTML y CSS. Construye el software, las integraciones y las páginas web que sostienen cada solución.</p></div>
+      </div>
+      <div class="stack" aria-label="Herramientas con las que trabajamos">
+        <span>n8n</span><span>Python</span><span>WhatsApp Cloud API</span><span>Instagram API</span><span>Claude, OpenAI y Gemini</span><span>HTML, CSS y JS</span><span>SQL y PostgreSQL</span><span>Power BI</span><span>TensorFlow y Keras</span><span>Google Sheets y Drive</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="seccion seccion-niebla" id="valu">
+  <div class="envoltura">
+    <div class="valu">
+      <img class="qr" src="img/qr-whatsapp.png" alt="Código QR para escribirle a Valu por WhatsApp al +57 324 771 9538" width="200" height="200" loading="lazy">
+      <div>
+        <h2>Habla con Valu, nuestro asistente</h2>
+        <p>Valu es el mismo tipo de asistente que construimos para nuestros clientes: responde dudas, registra tu solicitud y te conecta con el equipo. Escanea el código con tu celular o abre el chat directamente.</p>
+        <a class="boton boton-wa" href="https://wa.me/573247719538?text=Hola%20AlgorithmicValue%2C%20quiero%20informaci%C3%B3n." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.6-1.3a.5.5 0 0 0 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></svg>
+          Abrir chat con Valu
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cierre" id="contacto">
+  <div class="envoltura">
+    <div>
+      <h2>Empecemos por el proceso que más tiempo te quita.</h2>
+      <p class="entrada">Agenda un diagnóstico de 45 minutos sin costo. Salimos de esa conversación con tu proceso mapeado y una estimación clara de qué se puede automatizar primero.</p>
+    </div>
+    <div class="contactos">
+      <a class="contacto" href="https://wa.me/573247719538?text=Hola%20AlgorithmicValue%2C%20quiero%20agendar%20un%20diagn%C3%B3stico." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.6-1.3a.5.5 0 0 0 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></svg>
+        <span><small>WhatsApp</small><b>+57 324 771 9538</b></span>
+      </a>
+      <a class="contacto" href="mailto:contacto@algorithmicvalue.tech?subject=Quiero%20agendar%20un%20diagn%C3%B3stico">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        <span><small>Correo</small><b>contacto@algorithmicvalue.tech</b></span>
+      </a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="pie-pagina">
+  <div class="envoltura">
+    <p>© 2026 AlgorithmicValue. Medellín, Colombia.</p>
+    <nav aria-label="Legal">
+      <a href="privacidad.html">Política de privacidad</a>
+      <a href="eliminacion-datos.html">Eliminación de datos</a>
+    </nav>
+  </div>
+</footer>
+
+<dialog class="visor" id="visor" aria-label="Imagen del proyecto">
+  <button class="cerrar" type="button" id="cerrar-visor">Cerrar</button>
+  <img id="visor-img" src="" alt="">
+  <p id="visor-titulo"></p>
+</dialog>
+
+<script>
+document.documentElement.classList.add('js');
+(function(){
+  var reducir = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var piezas = Array.prototype.slice.call(document.querySelectorAll('#chat .globo, #fila'));
+  var escribiendo = document.getElementById('escribiendo');
+  var chat = document.getElementById('chat');
+  function mostrarTodo(){ piezas.forEach(function(p){ p.classList.add('ver'); }); }
+  if (reducir || !('IntersectionObserver' in window)) { mostrarTodo(); }
+  else {
+    var iniciado = false;
+    new IntersectionObserver(function(entradas, obs){
+      if (!entradas[0].isIntersecting || iniciado) return;
+      iniciado = true; obs.disconnect();
+      var t = 300;
+      piezas.forEach(function(p){
+        var esValu = p.classList.contains('g-valu');
+        if (esValu) {
+          setTimeout(function(){ chat.insertBefore(escribiendo, p); escribiendo.style.display = 'flex'; }, t);
+          t += 900;
+        }
+        setTimeout(function(){ escribiendo.style.display = 'none'; p.classList.add('ver'); }, t);
+        t += esValu ? 900 : 700;
+      });
+    }, {threshold: .35}).observe(document.querySelector('.demo'));
+  }
+
+  var visor = document.getElementById('visor');
+  var visorImg = document.getElementById('visor-img');
+  var visorTitulo = document.getElementById('visor-titulo');
+  document.querySelectorAll('.proyecto button').forEach(function(b){
+    b.addEventListener('click', function(){
+      visorImg.src = b.dataset.img;
+      visorImg.alt = b.querySelector('img').alt;
+      visorTitulo.textContent = b.dataset.titulo;
+      if (typeof visor.showModal === 'function') visor.showModal(); else window.open(b.dataset.img, '_blank');
+    });
+  });
+  document.getElementById('cerrar-visor').addEventListener('click', function(){ visor.close(); });
+  visor.addEventListener('click', function(e){ if (e.target === visor) visor.close(); });
+})();
+</script>
 </body>
 </html>
